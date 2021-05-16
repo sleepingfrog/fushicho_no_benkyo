@@ -24,6 +24,8 @@ defmodule HelloWeb.Router do
     get "/redirect_test1", PageController, :redirect_test1
     get "/redirect_test2", PageController, :redirect_test2
     get "/fallback_test", PageController, :fallback_test
+
+    resources "/users", UserController
   end
 
   # Other scopes may use custom stacks.
