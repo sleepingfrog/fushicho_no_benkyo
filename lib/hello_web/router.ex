@@ -12,6 +12,7 @@ defmodule HelloWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+
   end
 
   scope "/", HelloWeb do
@@ -26,9 +27,12 @@ defmodule HelloWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", HelloWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", HelloWeb do
+    pipe_through :api
+
+    get "/json_test1", PageController, :json_test1
+    get "/json_test2", PageController, :json_test2
+  end
 
   # Enables LiveDashboard only for development
   #

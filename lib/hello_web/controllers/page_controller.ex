@@ -40,4 +40,16 @@ defmodule HelloWeb.PageController do
   def fallback_test(conn, _params) do
     { :error, "something" }
   end
+
+  def json_test1(conn, _params) do
+    page = %{title: "foo"}
+
+    render(conn, "json_test1.json", page: page)
+  end
+
+  def json_test2(conn, _params) do
+    pages = [%{title: "foo"}, %{title: "bar"}]
+
+    render(conn, "json_test2.json", pages: pages)
+  end
 end
