@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  </head>
+  <body>
+    <header>
+      <p>test</p>
+    </header>
+    <main role="main" class="container">
+      <%= @inner_content %>
+    </main>
+  </body>
+</html>
