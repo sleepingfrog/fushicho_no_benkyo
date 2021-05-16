@@ -25,7 +25,9 @@ defmodule HelloWeb.PageController do
   def redirect_test1(conn, _params) do
     index_path = Routes.page_path(conn, :index)
     conn
-    |> put_status(301)
+    |> put_status(302)
+    |> put_flash(:info, "Welcome to Phoenix, from flash info!")
+    |> put_flash(:error, "Let's pretend we have an error.")
     |> redirect(to: index_path)
   end
 
