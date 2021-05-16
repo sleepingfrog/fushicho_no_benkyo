@@ -21,4 +21,15 @@ defmodule HelloWeb.PageController do
     conn
     |> render("index.html")
   end
+
+  def redirect_test1(conn, _params) do
+    index_path = Routes.page_path(conn, :index)
+    conn
+    |> put_status(301)
+    |> redirect(to: index_path)
+  end
+
+  def redirect_test2(conn, _params) do
+    redirect(conn, external: "https://elixir-lang.org")
+  end
 end
