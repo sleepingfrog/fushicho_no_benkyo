@@ -1,6 +1,8 @@
 defmodule HelloWeb.PageController do
   use HelloWeb, :controller
 
+  action_fallback HelloWeb.MyFallbackController
+
   def index(conn, %{"_format" => "text"}) do
     conn
     |> put_status(202)
@@ -33,5 +35,9 @@ defmodule HelloWeb.PageController do
 
   def redirect_test2(conn, _params) do
     redirect(conn, external: "https://elixir-lang.org")
+  end
+
+  def fallback_test(conn, _params) do
+    { :error, "something" }
   end
 end
